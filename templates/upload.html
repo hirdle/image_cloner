@@ -10,9 +10,9 @@
     {% for data in photos_links %}
     <div style="display: flex; justify-content: space-around; align-items: center; padding: 10px 0;">
         <img src="{{ data.0 }}" width="300" alt="">
-        <a href="{{ data.1 }}" style="display: block;">Telegraph</a>
+        <input type="text" readonly value="{{ data.1 }}" style="border: 0;">
     </div>
     {% endfor %}
-    <a href="{{ telegraph_link_text }}">All links</a>
+    <input type="text" readonly value="{{ telegraph_link_text }}" style="border: 0;">
 </body>
 </html>

@@ -136,7 +136,7 @@ def upload():
 
         for photo in photos_links:
 
-            photo_text = f"{photo[1]}<br>{photo[2]}<br>{photo[3]}<br><br>"
+            photo_text = f'<a href="{photo[1]}">{photo[1]}</a><br><a href="{photo[2]}">{photo[2]}</a><br><a href="{photo[3]}">{photo[3]}</a><br><br>'
 
             links_text += photo_text
 
