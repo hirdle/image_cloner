@@ -98,7 +98,7 @@ def get_telegraph_link(file_path):
 
 
 
-app = Flask(__name__, static_url_path = "", static_folder = "temp_files")
+app = Flask(__name__, static_url_path = "", static_folder = "static")
 
 @app.route('/')
 def index():
@@ -119,9 +119,9 @@ def upload():
             telegraph_link = ''
             anopic_link = ''
 
-            file.save('temp_files/' + file.filename)
+            file.save('static/temp_files/' + file.filename)
 
-            file_path = os.getcwd()+f"/temp_files/{file.filename}"
+            file_path = os.getcwd()+f"static/temp_files/{file.filename}"
 
             postimage_link = get_postimage_link(file_path)
 
@@ -142,7 +142,7 @@ def upload():
             photos_telegraph_posts.append([photo[3], create_telegraph_post(photo_text)])
             telegraph_links.append(create_telegraph_post(photo_text))
 
-            # os.remove('temp_files/'+i[0])
+            # os.remove('static/temp_files/'+i[0])
 
 
         return render_template("upload.html", photos_links=photos_telegraph_posts, telegraph_links=telegraph_links)
