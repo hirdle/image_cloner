@@ -25,8 +25,15 @@
         </div>
     </div>
     {% endfor %}
-    <div class="input_container">
-        <input type="text" readonly value="{{ telegraph_link_text }}" style="border: 0;">
+    <div style="width: fit-content; display: block; margin: 60px auto; border: 5px solid;">
+        {% for data in telegraph_links %}
+        <div style="display: flex; justify-content: space-around; align-items: center; padding: 10px 0;">
+            <div class="input_container">
+                <input type="text" readonly value="{{ data }}" style="border: 0;">
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    
 </body>
 </html>

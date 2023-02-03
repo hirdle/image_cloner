@@ -131,19 +131,18 @@ def upload():
             
             photos_links.append([file.filename, postimage_link, telegraph_link, anopic_link])
         
-        links_text = ""
+        
         photos_telegraph_posts = []
+        telegraph_links = []
 
         for photo in photos_links:
 
             photo_text = f'<a href="{photo[1]}">{photo[1]}</a><br><a href="{photo[2]}">{photo[2]}</a><br><a href="{photo[3]}">{photo[3]}</a><br><br>'
 
-            links_text += photo_text
-
             photos_telegraph_posts.append([photo[3], create_telegraph_post(photo_text)])
+            telegraph_links.append(create_telegraph_post(photo_text))
 
             # os.remove('temp_files/'+i[0])
 
-        telegraph_link_text = create_telegraph_post(links_text)
 
-        return render_template("upload.html", photos_links=photos_telegraph_posts, telegraph_link_text=telegraph_link_text)
+        return render_template("upload.html", photos_links=photos_telegraph_posts, telegraph_links=telegraph_links)
