@@ -66,6 +66,7 @@ def get_chromedriver(use_proxy=False, user_agent=None):
     x.start()
 
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--no-sandbox')
 
     if use_proxy:
         plugin_file = 'proxy_auth_plugin.zip'
