@@ -67,6 +67,7 @@ def get_chromedriver(use_proxy=False, user_agent=None):
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
 
     if use_proxy:
         plugin_file = 'proxy_auth_plugin.zip'
