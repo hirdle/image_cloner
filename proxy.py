@@ -4,9 +4,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 import os
 
-import xvfbwrapper
-x = xvfbwrapper.Xvfb()
-x.start()
 
 PROXY_HOST = '85.195.81.165'
 PROXY_PORT = 10083 # Your proxy port
@@ -64,6 +61,10 @@ chrome.webRequest.onAuthRequired.addListener(
 
 
 def get_chromedriver(use_proxy=False, user_agent=None):
+    import xvfbwrapper
+    x = xvfbwrapper.Xvfb()
+    x.start()
+
     chrome_options = webdriver.ChromeOptions()
 
     if use_proxy:
