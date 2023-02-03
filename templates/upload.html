@@ -8,8 +8,10 @@
 
     <style>
         input {
+            width: 100%;
+        }
+        .input_container {
             width: fit-content;
-            display: block;
             margin: 0 auto;
         }
     </style>
@@ -18,9 +20,13 @@
     {% for data in photos_links %}
     <div style="display: flex; justify-content: space-around; align-items: center; padding: 10px 0;">
         <img src="{{ data.0 }}" width="300" alt="">
-        <input type="text" readonly value="{{ data.1 }}" style="border: 0;">
+        <div class="input_container">
+            <input type="text" readonly value="{{ data.1 }}" style="border: 0;">
+        </div>
     </div>
     {% endfor %}
-    <input type="text" readonly value="{{ telegraph_link_text }}" style="border: 0;">
+    <div class="input_container">
+        <input type="text" readonly value="{{ telegraph_link_text }}" style="border: 0;">
+    </div>
 </body>
 </html>
