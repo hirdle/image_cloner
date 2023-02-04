@@ -1,41 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Site</title>
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <style>
-        input {
-            width: 215px;
-        }
-        .input_container {
-            width: fit-content;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    {% for data in photos_links %}
-    <div style="display: flex; justify-content: space-around; align-items: center; padding: 10px 0;">
-        <img src="{{ data.0 }}" width="300" alt="">
-        <div class="input_container">
-            <input type="text" readonly value="{{ data.1 }}" style="border: 0;">
-        </div>
-    </div>
-    {% endfor %}
-    <div style="width: fit-content; display: block; margin: 60px auto; border: 5px solid;">
-        {% for data in telegraph_links %}
-        <div style="display: flex; justify-content: space-around; align-items: center; padding: 10px 0;">
-            <div class="input_container">
-                <input type="text" readonly value="{{ data }}" style="border: 0;">
+{% block content %}
+
+    <div class="main_upload">
+
+        {% for data in photos_links %}
+            <div class="upload_container d-flex align-items-center justify-content-start">
+                <img src="{{ data.0 }}" width="300" alt="{{ data.0 }}" class="img-fluid rounded">
+                <input type="text" readonly value="{{ data.1 }}" class="form-control ms-5" style="width: 285px">
             </div>
-        </div>
         {% endfor %}
+
+
+        <div style="width: 285px;" class="mx-auto mt-5">
+            {% for data in telegraph_links %}
+                <input type="text" readonly value="{{ data }}" class="form-control" style="width: 285px">
+            {% endfor %}
+        </div>
+
     </div>
+
     
-</body>
-</html>
+
+{% endblock %}

@@ -9,6 +9,8 @@ import os
 import time
 import requests
 
+
+
 from telegraph import Telegraph
 
 telegraph = Telegraph()
@@ -34,7 +36,7 @@ def get_postimage_link(file_path):
     driver.get("https://postimages.org/")
 
     driver.find_element(By.CLASS_NAME, "dz-hidden-input").send_keys(file_path)
-    time.sleep(3)
+    # time.sleep(3)
 
     postimage_link = ''
     
@@ -58,9 +60,9 @@ def get_anopic_link(file_path):
     driver.get("https://anopic.net/")
     
     driver.find_element(By.CLASS_NAME, "dz-hidden-input").send_keys(file_path)
-    time.sleep(5)
+    # time.sleep(5)
     driver.find_element(By.XPATH, r'/html/body/main/div/div/div').click()
-    time.sleep(3)
+    # time.sleep(3)
 
     anopic_link = ''
 
@@ -100,6 +102,9 @@ def get_telegraph_link(file_path):
 
 app = Flask(__name__, static_url_path = "", static_folder = "static")
 
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -108,7 +113,6 @@ def index():
 def upload():
     if request.method == 'POST':
 
-  
         files = request.files.getlist("file")
 
         photos_links = []
@@ -121,7 +125,7 @@ def upload():
 
             file.save('static/temp_files/' + file.filename)
 
-            file_path = os.getcwd()+f"static/temp_files/{file.filename}"
+            file_path = os.getcwd()+f"/static/temp_files/{file.filename}"
 
             postimage_link = get_postimage_link(file_path)
 
