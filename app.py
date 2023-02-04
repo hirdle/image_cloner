@@ -115,6 +115,8 @@ def upload():
 
         files = request.files.getlist("file")
 
+        print("[+] File uploaded")
+
         photos_links = []
   
         for file in files:
