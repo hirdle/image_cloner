@@ -87,10 +87,13 @@ def get_telegraph_link(file_path):
             files={'file': ('file', f, 'image/jpg')}
         ).json()[0]['src']
 
-        response = telegraph.create_page(
-            "Anonymous image", 
-            html_content=f'<img src="{telegraph_src}">'
-        )
+        response = None
+
+        while response == None:
+            response = telegraph.create_page(
+                "Anonymous image", 
+                html_content=f'<img src="{telegraph_src}">'
+            )
 
         telegraph_link = response['url']
 
