@@ -96,6 +96,7 @@ def get_telegraph_link(file_path):
                     html_content=f'<img src="{telegraph_src}">'
                 )
             except: pass
+            
         telegraph_link = response['url']
 
         print("[+] Telegraph success")
