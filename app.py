@@ -18,10 +18,17 @@ telegraph.create_account(short_name='anonymous')
 
 def create_telegraph_post(text):
 
-    response = telegraph.create_page(
+    response = None
+
+    while response == None:
+        try:
+            response = telegraph.create_page(
             "Images", 
-            html_content=text
-        )
+                html_content=text
+            )
+        except: pass
+
+    
 
     link = response['url']
 
