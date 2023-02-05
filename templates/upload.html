@@ -6,7 +6,7 @@
     <div class="main_upload">
 
         {% for data in photos_links %}
-            <div class="upload_container d-flex align-items-center justify-content-start">
+            <div class="upload_container d-flex align-items-center justify-content-start mt-5">
                 <img src="{{ data.0 }}" width="300" alt="{{ data.0 }}" class="img-fluid rounded">
                 <input type="text" readonly value="{{ data.1 }}" class="form-control ms-5" style="width: 285px">
             </div>
@@ -15,7 +15,7 @@
 
         <div style="width: 285px;" class="mx-auto mt-5">
             {% for data in telegraph_links %}
-                <input type="text" readonly value="{{ data }}" class="form-control" style="width: 285px">
+                <input type="text" readonly value="{{ data }}" class="form-control mt-1" style="width: 285px">
             {% endfor %}
         </div>
 
