@@ -91,3 +91,4 @@ def get_chromedriver(use_proxy=False, user_agent=None):
 
     return driver
 
+app.run(host="", port=80)
